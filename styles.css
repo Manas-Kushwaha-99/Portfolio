@@ -1,0 +1,171 @@
+/* Custom Cursor */
+body, button, .bubble {
+    cursor: url('custom-cursor.png'), auto;
+}
+
+/* Video Background */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-bg video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.video-active {
+    opacity: 1 !important;
+    z-index: 0;
+}
+
+.video-inactive {
+    opacity: 0 !important;
+    z-index: -1;
+}
+
+/* Bubbles Container */
+.bubbles-container {
+    position: relative;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Bubble Styles */
+.bubble {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: bubbleEntrance 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.bubble:nth-child(1) { animation-delay: 0.2s; }
+.bubble:nth-child(2) { animation-delay: 0.4s; }
+.bubble:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bubbleEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bubble:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+/* Bubble Colors */
+.contact-bubble {
+    background: #4CAF50;
+    color: white;
+}
+
+.resume-bubble {
+    background: #2196F3;
+    color: white;
+}
+
+.about-bubble {
+    background: #FFC107;
+    color: black;
+}
+
+/* Bubble Content */
+.bubble-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.bubble-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Info Display */
+.info-display {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    animation: fadeInUp 0.5s ease;
+    display: none;
+}
+
+.dark .info-display {
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General Styles */
+.content-layer {
+    z-index: 1;
+    position: relative;
+}
+
+body {
+    color: #212529;
+    transition: color 0.5s ease-in-out;
+}
+
+body.dark {
+    color: #f8f9fa;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .bubble {
+        width: 100px;
+        height: 100px;
+        margin: 1rem;
+    }
+    
+    .bubble-icon {
+        font-size: 1.5rem;
+    }
+    
+    .bubble-text {
+        font-size: 0.8rem;
+    }
+    
+    .info-display {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
