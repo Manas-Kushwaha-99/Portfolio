@@ -81,20 +81,26 @@ body, button, .bubble {
 /* Bubble Colors */
 .contact-bubble {
     background: #4CAF50;
-    color: white;
+    color: black;
 }
 
 .resume-bubble {
     background: #2196F3;
-    color: white;
+    color: black;
 }
 
 .about-bubble {
     background: #FFC107;
     color: black;
 }
-.projects-bubble { background: #9C27B0; color: white; }
-.certificates-bubble { background: #E91E63; color: white; }
+.projects-bubble {
+  background: #9C27B0;
+  color: black;
+}
+.certificates-bubble {
+  background: #E91E63;
+  color: black;
+}
 
 
 /* Bubble Content */
@@ -173,3 +179,4 @@ body.dark {
     }
 
 }
+
