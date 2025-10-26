@@ -35,6 +35,12 @@ function handleBubbleClick(event) {
         case 'about':
             showAboutMe();
             break;
+        case 'projects':
+            showProjects();
+            break;
+        case 'certificates':
+            showCertificates();
+            break;
     }
 }
 
@@ -58,6 +64,42 @@ function showAboutMe() {
     infoDisplay.style.display = 'block';
 }
 
+function showProjects() {
+  infoDisplay.innerHTML = `
+    <h3>My Projects</h3>
+    <ul>
+      <li><a href="https://github.com/Manas-Kushwaha-99/Network-Monitor-Dashboard" target="_blank">Network Monitor Dashboard</a></li>
+      <li><a href="https://github.com/Manas-Kushwaha-99/DNS-Manager" target="_blank">DNS Manager</a></li>
+      <li><a href="https://github.com/Manas-Kushwaha-99/PC-Hardware-Performance-Profiler" target="_blank">PC Hardware Performance Profiler</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1Sp96ztjMIARk6Ijd_M4Mg19VtN_YywJ9" target="_blank">Hand-Following Arduino Car</a></li>
+      <li><a href="https://github.com/Manas-Kushwaha-99/Fitness-and-Health-BLog" target="_blank">Fitness and Health Blog</a></li>
+    </ul>
+  `;
+  infoDisplay.style.display = 'block';
+}
+function showCertificates() {
+  infoDisplay.innerHTML = `
+    <h3>My Certificates</h3>
+    <ul>
+      <li>
+        <a href="https://media.geeksforgeeks.org/certificates/1745578492/2e3ff2772a76e9091848969c688e6cf1.pdf" target="_blank">Artificial Intelligence & Machine Learning – Technical Workshop(GeeksforGeeks)</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1CAMQPY8qJV6IFeMqXA42W6iaq-yFc_LK/view" target="_blank">Generative AI Mastermind — Outskill</a>
+      </li>
+      <li>
+        <a href="https://drive.google.com/file/d/1A-np_e9jnXe-chLC_vwT3sCwpzKLcKWN/view" target="_blank">Coding Ninjas Certification — GenAI Projects</a>
+      </li>
+      <li>
+        <a href="https://codesignal.com/learn/certificates/cmgwx47p10060l704oytu0whu/course-paths/21" target="_blank">Introduction to Programming with Python — Code Signal</a>
+      </li>
+    </ul>
+  `;
+  infoDisplay.style.display = 'block';
+}
+
+
+
 function toggleTheme() {
     isDark = !isDark;
     document.body.classList.toggle('dark', isDark);
@@ -71,4 +113,5 @@ function toggleTheme() {
     }
     
     document.querySelector('#themeToggle i').className = isDark ? 'bi bi-sun' : 'bi bi-moon';
+
 }
