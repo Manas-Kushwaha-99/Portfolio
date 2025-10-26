@@ -93,6 +93,9 @@ body, button, .bubble {
     background: #FFC107;
     color: black;
 }
+.projects-bubble { background: #9C27B0; color: white; }
+.certificates-bubble { background: #E91E63; color: white; }
+
 
 /* Bubble Content */
 .bubble-icon {
@@ -168,4 +171,5 @@ body.dark {
         padding: 1.5rem;
         margin: 1rem;
     }
+
 }
