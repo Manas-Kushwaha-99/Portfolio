@@ -73,6 +73,7 @@ function showProjects() {
       <li><a href="https://github.com/Manas-Kushwaha-99/PC-Hardware-Performance-Profiler" target="_blank">PC Hardware Performance Profiler</a></li>
       <li><a href="https://drive.google.com/drive/folders/1Sp96ztjMIARk6Ijd_M4Mg19VtN_YywJ9" target="_blank">Hand-Following Arduino Car</a></li>
       <li><a href="https://github.com/Manas-Kushwaha-99/Fitness-and-Health-BLog" target="_blank">Fitness and Health Blog</a></li>
+      <li><a href="https://github.com/Manas-Kushwaha-99/Linux-System-Monitor-Tool" target="_blank">Linux System Monitor Tool</a></li>
     </ul>
   `;
   infoDisplay.style.display = 'block';
@@ -115,3 +116,4 @@ function toggleTheme() {
     document.querySelector('#themeToggle i').className = isDark ? 'bi bi-sun' : 'bi bi-moon';
 
 }
+
