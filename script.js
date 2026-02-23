@@ -94,7 +94,8 @@ function showCertificates() {
       <li>
         <a href="https://codesignal.com/learn/certificates/cmgwx47p10060l704oytu0whu/course-paths/21" target="_blank">Introduction to Programming with Python — Code Signal</a>
       </li>
-        <a href="https://drive.google.com/file/d/19kpfjw1sRZI05YMUy2CSuvq3KCsyRfpJ/view?usp=sharing" target="_blank">AI Tools Workshop — be10x</a>
+      <li>
+        <a href="https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971079573" target="_blank">AI Tools Workshop — be10x</a>
       </li>
     </ul>
   `;
@@ -118,5 +119,6 @@ function toggleTheme() {
     document.querySelector('#themeToggle i').className = isDark ? 'bi bi-sun' : 'bi bi-moon';
 
 }
+
 
 
