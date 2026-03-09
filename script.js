@@ -97,6 +97,9 @@ function showCertificates() {
       <li>
         <a href="https://drive.google.com/file/d/19kpfjw1sRZI05YMUy2CSuvq3KCsyRfpJ/view?usp=sharing" target="_blank">AI Tools Workshop — be10x</a>
       </li>
+      <li>
+        <a href="https://coursera.org/share/bb724f38a7a815b0893bef1f20124952" target="_blank">Accelerate App Development with Gemini CLI - Coursera</a>
+      </li>
     </ul>
   `;
   infoDisplay.style.display = 'block';
@@ -119,6 +122,7 @@ function toggleTheme() {
     document.querySelector('#themeToggle i').className = isDark ? 'bi bi-sun' : 'bi bi-moon';
 
 }
+
 
 
 
