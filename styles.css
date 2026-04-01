@@ -52,6 +52,12 @@ body {
 body,
 button,
 a {
+    cursor: url("custom-cursor1.png"), auto;
+}
+
+body.dark,
+body.dark button,
+body.dark a {
     cursor: url("custom-cursor.png"), auto;
 }
 
@@ -181,22 +187,6 @@ body.dark .video-overlay {
     height: 2.8rem;
 }
 
-.menu-toggle {
-    width: 2.8rem;
-    height: 2.8rem;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.26rem;
-    padding: 0 0.65rem;
-}
-
-.menu-toggle span {
-    display: block;
-    height: 2px;
-    width: 100%;
-    background: currentColor;
-}
 
 main {
     width: min(1180px, calc(100% - 2rem));
@@ -600,27 +590,9 @@ main {
         padding: 0.9rem 1rem;
     }
 
-    .site-nav {
-        position: absolute;
-        top: calc(100% + 0.6rem);
-        left: 1rem;
-        right: 1rem;
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        border-radius: 1.2rem;
-        background: var(--surface-strong);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-    }
-
-    .site-nav.is-open {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: inline-flex;
+    .site-nav a {
+        font-size: 0.8rem;
+        color: var(--muted);
     }
 
     .section-shell {

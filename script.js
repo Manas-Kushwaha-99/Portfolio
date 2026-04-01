@@ -1,7 +1,6 @@
 
 
 const themeToggle = document.getElementById("themeToggle");
-const menuToggle = document.getElementById("menuToggle");
 const siteNav = document.getElementById("siteNav");
 const lightVideo = document.getElementById("lightVideo");
 const darkVideo = document.getElementById("darkVideo");
@@ -14,12 +13,32 @@ const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const storedTheme = localStorage.getItem("portfolio-theme");
 let isDark = storedTheme ? storedTheme === "dark" : prefersDark;
 
+let isInitialThemeApply = true;
+
 function applyTheme() {
     document.body.classList.toggle("dark", isDark);
-    lightVideo.classList.toggle("video-active", !isDark);
-    lightVideo.classList.toggle("video-inactive", isDark);
-    darkVideo.classList.toggle("video-active", isDark);
-    darkVideo.classList.toggle("video-inactive", !isDark);
+
+    if (isInitialThemeApply) {
+        // On initial load, set correct state without animation
+        lightVideo.style.opacity = isDark ? "0" : "1";
+        darkVideo.style.opacity = isDark ? "1" : "0";
+        lightVideo.style.transition = "";
+        darkVideo.style.transition = "";
+        isInitialThemeApply = false;
+    } else {
+        // On toggle, stagger: fade out old, then fade in new
+        const oldVideo = isDark ? lightVideo : darkVideo;
+        const newVideo = isDark ? darkVideo : lightVideo;
+
+        oldVideo.style.transition = "opacity 0.45s ease";
+        oldVideo.style.opacity = "0";
+
+        setTimeout(() => {
+            newVideo.style.transition = "opacity 0.45s ease";
+            newVideo.style.opacity = "1";
+        }, 50);
+    }
+
     themeToggle.innerHTML = isDark
         ? '<i class="bi bi-brightness-high-fill"></i>'
         : '<i class="bi bi-moon-stars-fill"></i>';
@@ -65,13 +84,6 @@ function handleBubbleAction(event) {
     }
 }
 
-function closeNavOnSelection(event) {
-    if (event.target.matches("a")) {
-        siteNav.classList.remove("is-open");
-        menuToggle.setAttribute("aria-expanded", "false");
-    }
-}
-
 function markActiveSection() {
     const sections = document.querySelectorAll("main section[id]");
     const links = document.querySelectorAll(".site-nav a");
@@ -93,14 +105,6 @@ themeToggle.addEventListener("click", () => {
     isDark = !isDark;
     applyTheme();
 });
-
-menuToggle.addEventListener("click", () => {
-    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!expanded));
-    siteNav.classList.toggle("is-open");
-});
-
-siteNav.addEventListener("click", closeNavOnSelection);
 
 document.querySelectorAll(".bubble").forEach((bubble) => {
     bubble.addEventListener("click", handleBubbleAction);
