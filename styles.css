@@ -221,6 +221,7 @@ main {
 .modal-shell {
     background: var(--surface);
     backdrop-filter: blur(18px);
+    transform: translateZ(0);
 }
 
 .hero-copy,
