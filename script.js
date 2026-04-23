@@ -132,8 +132,7 @@ function applyTheme() {
         const oldVideo = isDark ? lightVideo : darkVideo;
         const newVideo = isDark ? darkVideo : lightVideo;
 
-        oldVideo.style.willChange = "opacity";
-        newVideo.style.willChange = "opacity";
+        document.body.classList.add("theme-switching");
 
         oldVideo.style.transition = "opacity 0.45s ease";
         oldVideo.style.opacity = "0";
@@ -144,9 +143,8 @@ function applyTheme() {
         }, 50);
 
         setTimeout(() => {
-            oldVideo.style.willChange = "";
-            newVideo.style.willChange = "";
-        }, 600);
+            document.body.classList.remove("theme-switching");
+        }, 550);
     }
 
     themeToggle.innerHTML = isDark

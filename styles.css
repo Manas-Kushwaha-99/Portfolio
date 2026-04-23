@@ -32,6 +32,18 @@ body.dark {
     --accent-5: #ff7aa2;
 }
 
+body.theme-switching .glass-panel,
+body.theme-switching .prose-card,
+body.theme-switching .stat-card,
+body.theme-switching .skill-panel,
+body.theme-switching .project-card,
+body.theme-switching .timeline-item,
+body.theme-switching .contact-card,
+body.theme-switching .modal-shell {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
 * {
     box-sizing: border-box;
 }
