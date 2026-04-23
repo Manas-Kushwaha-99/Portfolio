@@ -75,6 +75,7 @@ button {
     inset: 0;
     overflow: hidden;
     z-index: -3;
+    transform: translateZ(0);
 }
 
 .video-bg video {
@@ -220,8 +221,9 @@ main {
 .contact-card,
 .modal-shell {
     background: var(--surface);
+    -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
-    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .hero-copy,
@@ -465,6 +467,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    contain: paint;
 }
 
 .card-top {

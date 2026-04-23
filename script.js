@@ -132,6 +132,9 @@ function applyTheme() {
         const oldVideo = isDark ? lightVideo : darkVideo;
         const newVideo = isDark ? darkVideo : lightVideo;
 
+        oldVideo.style.willChange = "opacity";
+        newVideo.style.willChange = "opacity";
+
         oldVideo.style.transition = "opacity 0.45s ease";
         oldVideo.style.opacity = "0";
 
@@ -139,6 +142,11 @@ function applyTheme() {
             newVideo.style.transition = "opacity 0.45s ease";
             newVideo.style.opacity = "1";
         }, 50);
+
+        setTimeout(() => {
+            oldVideo.style.willChange = "";
+            newVideo.style.willChange = "";
+        }, 600);
     }
 
     themeToggle.innerHTML = isDark
