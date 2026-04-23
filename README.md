@@ -1,1 +1,6 @@
 This repository contains the source code for my personal portfolio website, available at https://manas.qzz.io. The site is built using HTML, CSS, and JavaScript, and features a custom-animated night campsite scene, interactive navigation bubbles, and sections for contact, resume, and about info. Designed from scratch, the site reflects my interest in practical, creative web design with a minimal yet playful user experience. You’ll find all assets and scripts for deployment or customization within this repo.
+
+## Acknowledgements
+
+This project was built with the assistance of AI tools for code generation, debugging, and documentation.
+
