@@ -88,6 +88,7 @@ button {
     overflow: hidden;
     z-index: -3;
     transform: translateZ(0);
+    background: var(--bg);
 }
 
 .video-bg video {
@@ -97,29 +98,26 @@ button {
     min-height: 100%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    transition: opacity 0.45s ease;
-}
-
-.video-active {
-    opacity: 1;
-}
-
-.video-inactive {
     opacity: 0;
+    transition: opacity 0.45s ease;
+    will-change: opacity;
+}
+
+.video-bg video[data-active="true"] {
+    opacity: 1;
 }
 
 .video-overlay {
     position: absolute;
     inset: 0;
+    pointer-events: none;
     background:
         radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 35%),
         linear-gradient(180deg, rgba(5, 8, 11, 0.18), rgba(5, 8, 11, 0.5));
 }
 
 body.dark .video-overlay {
-    background:
-        radial-gradient(circle at top left, rgba(126, 214, 223, 0.08), transparent 30%),
-        linear-gradient(180deg, rgba(4, 8, 12, 0.28), rgba(4, 8, 12, 0.68));
+    background: linear-gradient(180deg, rgba(4, 8, 12, 0.28), rgba(4, 8, 12, 0.68));
 }
 
 .site-header {

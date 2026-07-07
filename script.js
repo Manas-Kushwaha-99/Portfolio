@@ -91,13 +91,22 @@ function initLoader() {
         requestAnimationFrame(render);
     }
 
-    requestAnimationFrame(render);
+    let rafId = requestAnimationFrame(render);
+    let loaderRunning = true;
+
+    function stopLoader() {
+        if (!loaderRunning) return;
+        loaderRunning = false;
+        cancelAnimationFrame(rafId);
+        loader.classList.add("hidden");
+    }
 
     window.addEventListener("load", () => {
-        setTimeout(() => {
-            loader.classList.add("hidden");
-        }, 1000);
+        setTimeout(stopLoader, 700);
     });
+
+    // Safety net: never let the loader run more than 4s, even if 'load' is slow
+    setTimeout(stopLoader, 4000);
 }
 
 initLoader();
@@ -120,31 +129,29 @@ let isInitialThemeApply = true;
 function applyTheme() {
     document.body.classList.toggle("dark", isDark);
 
+    const activeVideo = isDark ? darkVideo : lightVideo;
+    const inactiveVideo = isDark ? lightVideo : darkVideo;
+
+    activeVideo.dataset.active = "true";
+    inactiveVideo.removeAttribute("data-active");
+
+    // Make sure the active video is playing; pause the inactive one so the
+    // browser stops decoding it (otherwise both run forever = stutter).
+    const playPromise = activeVideo.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+            // Autoplay blocked; user gesture will resume on next interaction
+        });
+    }
+    inactiveVideo.pause();
+
     if (isInitialThemeApply) {
-        // On initial load, set correct state without animation
-        lightVideo.style.opacity = isDark ? "0" : "1";
-        darkVideo.style.opacity = isDark ? "1" : "0";
-        lightVideo.style.transition = "";
-        darkVideo.style.transition = "";
         isInitialThemeApply = false;
     } else {
-        // On toggle, stagger: fade out old, then fade in new
-        const oldVideo = isDark ? lightVideo : darkVideo;
-        const newVideo = isDark ? darkVideo : lightVideo;
-
         document.body.classList.add("theme-switching");
-
-        oldVideo.style.transition = "opacity 0.45s ease";
-        oldVideo.style.opacity = "0";
-
-        setTimeout(() => {
-            newVideo.style.transition = "opacity 0.45s ease";
-            newVideo.style.opacity = "1";
-        }, 50);
-
         setTimeout(() => {
             document.body.classList.remove("theme-switching");
-        }, 550);
+        }, 500);
     }
 
     themeToggle.innerHTML = isDark
