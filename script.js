@@ -1,6 +1,20 @@
 (() => {
     "use strict";
 
+    /* ------- Loader ------- */
+    const loader = document.getElementById("loader");
+    const hideLoader = () => {
+        if (!loader) return;
+        loader.classList.add("hidden");
+        document.body.classList.add("loaded");
+    };
+
+    if (document.readyState === "complete") {
+        setTimeout(hideLoader, 700);
+    } else {
+        window.addEventListener("load", () => setTimeout(hideLoader, 700), { once: true });
+    }
+
     /* ------- Scroll spy ------- */
     const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
     const sections = Array.from(document.querySelectorAll("main section[id]"));

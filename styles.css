@@ -88,6 +88,89 @@ body, body button, body a {
     cursor: url("custom-cursor.png"), auto;
 }
 
+/* =========================================================================
+   Loader
+   ========================================================================= */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    gap: 1.25rem;
+    background: var(--bg);
+    color: var(--text-soft);
+    transition: opacity 0.55s var(--ease), visibility 0s linear 0.55s;
+}
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-mark {
+    --uib-size: 28;
+    --uib-color: var(--accent);
+    --uib-speed: 3.5s;
+    --uib-stroke: 4;
+    --uib-mult: calc(var(--uib-size) / var(--uib-stroke));
+    --uib-stroke-px: calc(var(--uib-stroke) * 1px);
+    --uib-size-px: calc(var(--uib-size) * 1px);
+    position: relative;
+    height: var(--uib-size-px);
+    width: var(--uib-size-px);
+}
+.loader-line {
+    position: absolute;
+    top: calc(50% - var(--uib-stroke-px) / 2);
+    left: calc(50% - var(--uib-stroke-px) / 2);
+    width: var(--uib-stroke-px);
+    height: var(--uib-stroke-px);
+    background-color: var(--uib-color);
+    animation: center-line var(--uib-speed) ease infinite;
+    transition: background-color 0.3s ease;
+}
+.loader-mark::before,
+.loader-mark::after {
+    content: '';
+    position: absolute;
+    width: var(--uib-stroke-px);
+    height: var(--uib-stroke-px);
+    background-color: var(--uib-color);
+    animation: explore var(--uib-speed) ease infinite;
+    transition: background-color 0.3s ease;
+}
+.loader-mark::after {
+    animation-delay: calc(var(--uib-speed) * -0.5);
+}
+.loader-text {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+@keyframes center-line {
+    0%, 25%, 50%, 75%, 100% { transform: scaleX(1) scaleY(1); }
+    12.5%, 62.5%             { transform: scaleX(var(--uib-mult)) scaleY(1); }
+    37.5%, 87.5%             { transform: scaleX(1) scaleY(var(--uib-mult)); }
+}
+@keyframes explore {
+    0%, 100% { transform: scaleX(1) scaleY(1) translate(0%, 0%); transform-origin: top left;     top: 0;            left: 0; }
+    12.5%    { transform: scaleX(var(--uib-mult)) scaleY(1) translate(0%, 0%); transform-origin: top left;     top: 0;            left: 0; }
+    12.50001%{ transform: scaleX(var(--uib-mult)) scaleY(1) translate(0%, 0%); transform-origin: top right;    top: 0;            right: 0; }
+    25%      { transform: scaleX(1) scaleY(1) translate(0%, 0%); transform-origin: top right;    top: 0;            right: 0; }
+    37.5%    { transform: scaleX(1) scaleY(var(--uib-mult)) translate(0%, 0%); transform-origin: top right;    top: 0;            right: 0; }
+    37.5001% { transform: scaleX(1) scaleY(var(--uib-mult)) translate(0%, 0%); transform-origin: bottom right; bottom: 0;         right: 0; }
+    50%      { transform: scaleX(1) scaleY(1) translate(0%, 0%); transform-origin: bottom right; bottom: 0;         right: 0; }
+    62.5%    { transform: scaleX(var(--uib-mult)) scaleY(1) translate(0%, 0%); transform-origin: bottom right; bottom: 0;         right: 0; }
+    62.5001% { transform: scaleX(var(--uib-mult)) scaleY(1) translate(0%, 0%); transform-origin: bottom left;  bottom: 0;         left: 0; }
+    75%      { transform: scaleX(1) scaleY(1) translate(0%, 0%); transform-origin: bottom left;  bottom: 0;         left: 0; }
+    87.5%    { transform: scaleX(1) scaleY(var(--uib-mult)) translate(0%, 0%); transform-origin: bottom left;  bottom: 0;         left: 0; }
+    87.5001% { transform: scaleX(1) scaleY(var(--uib-mult)) translate(0%, 0%); transform-origin: top left;     top: 0;            left: 0; }
+}
+
 /* Video background */
 .video-bg {
     position: fixed;
@@ -95,7 +178,9 @@ body, body button, body a {
     overflow: hidden;
     z-index: -3;
     transform: translateZ(0);
+    visibility: hidden;
 }
+body.loaded .video-bg { visibility: visible; }
 .video-bg video {
     position: absolute;
     inset: 50% auto auto 50%;
