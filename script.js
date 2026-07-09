@@ -1,6 +1,6 @@
-
-
 const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/* ------- Loader ------- */
 
 const loaderConfig = {
     particleCount: 86,
@@ -72,6 +72,7 @@ function initLoader() {
     });
 
     const startedAt = performance.now();
+    let animFrameId = null;
 
     function render(now) {
         const time = now - startedAt;
@@ -88,19 +89,34 @@ function initLoader() {
             node.setAttribute('opacity', particle.opacity.toFixed(3));
         });
 
-        requestAnimationFrame(render);
+        animFrameId = requestAnimationFrame(render);
     }
 
-    requestAnimationFrame(render);
+    animFrameId = requestAnimationFrame(render);
 
     window.addEventListener("load", () => {
         setTimeout(() => {
             loader.classList.add("hidden");
+            setTimeout(() => cancelAnimationFrame(animFrameId), 700);
         }, 1000);
     });
 }
 
 initLoader();
+
+/* ------- Portfolio data ------- */
+
+const dataScript = document.getElementById("portfolio-data");
+let portfolioData = {};
+if (dataScript) {
+    try {
+        portfolioData = JSON.parse(dataScript.textContent);
+    } catch (e) {
+        console.warn("Failed to parse portfolio data", e);
+    }
+}
+
+/* ------- DOM refs ------- */
 
 const themeToggle = document.getElementById("themeToggle");
 const siteNav = document.getElementById("siteNav");
@@ -115,54 +131,49 @@ const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 const storedTheme = localStorage.getItem("portfolio-theme");
 let isDark = storedTheme ? storedTheme === "dark" : prefersDark;
 
-let isInitialThemeApply = true;
+/* ------- Theme ------- */
 
 function applyTheme() {
     document.body.classList.toggle("dark", isDark);
 
-    if (isInitialThemeApply) {
-        // On initial load, set correct state without animation
-        lightVideo.style.opacity = isDark ? "0" : "1";
-        darkVideo.style.opacity = isDark ? "1" : "0";
-        lightVideo.style.transition = "";
-        darkVideo.style.transition = "";
-        isInitialThemeApply = false;
-    } else {
-        // On toggle, stagger: fade out old, then fade in new
+    if (lightVideo && darkVideo) {
         const oldVideo = isDark ? lightVideo : darkVideo;
         const newVideo = isDark ? darkVideo : lightVideo;
 
         document.body.classList.add("theme-switching");
 
-        oldVideo.style.transition = "opacity 0.45s ease";
-        oldVideo.style.opacity = "0";
-
-        setTimeout(() => {
-            newVideo.style.transition = "opacity 0.45s ease";
-            newVideo.style.opacity = "1";
-        }, 50);
+        oldVideo.classList.add("video-inactive");
+        oldVideo.classList.remove("video-active");
+        newVideo.classList.remove("video-inactive");
+        newVideo.classList.add("video-active");
 
         setTimeout(() => {
             document.body.classList.remove("theme-switching");
         }, 550);
     }
 
-    themeToggle.innerHTML = isDark
-        ? '<i class="bi bi-brightness-high-fill"></i>'
-        : '<i class="bi bi-moon-stars-fill"></i>';
+    if (themeToggle) {
+        themeToggle.innerHTML = isDark
+            ? '<i class="bi bi-brightness-high-fill"></i>'
+            : '<i class="bi bi-moon-stars-fill"></i>';
+    }
     localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
 }
+
+/* ------- Modal ------- */
 
 function openInfoModal(key) {
     const entry = portfolioData[key];
     if (!entry) return;
-    modalEyebrow.textContent = entry.eyebrow;
-    modalTitle.textContent = entry.title;
-    modalBody.innerHTML = entry.body;
-    if (typeof modal.showModal === "function") {
+    if (modalEyebrow) modalEyebrow.textContent = entry.eyebrow;
+    if (modalTitle) modalTitle.textContent = entry.title;
+    if (modalBody) modalBody.innerHTML = entry.body;
+    if (modal && typeof modal.showModal === "function") {
         modal.showModal();
     }
 }
+
+/* ------- Scroll helpers ------- */
 
 function smoothScrollTo(selector) {
     const target = document.querySelector(selector);
@@ -171,30 +182,9 @@ function smoothScrollTo(selector) {
     }
 }
 
-function handleBubbleAction(event) {
-    const action = event.currentTarget.dataset.action;
-    if (action === "resume") {
-        window.open(
-            "https://drive.google.com/file/d/1crVPv_OdwpvYC9i8jY9QmIt1S5E-q51s/view?usp=sharing",
-            "_blank",
-            "noopener"
-        );
-        return;
-    }
-    if (["about", "projects", "certificates"].includes(action)) {
-        smoothScrollTo(`#${action}`);
-        openInfoModal(action);
-        return;
-    }
-    if (action === "contact") {
-        smoothScrollTo("#contact");
-        openInfoModal(action);
-    }
-}
-
 function markActiveSection() {
     const sections = document.querySelectorAll("main section[id]");
-    const links = document.querySelectorAll(".site-nav a");
+    const links = siteNav ? siteNav.querySelectorAll("a") : [];
     let activeId = "about";
 
     sections.forEach((section) => {
@@ -209,29 +199,60 @@ function markActiveSection() {
     });
 }
 
-themeToggle.addEventListener("click", () => {
-    isDark = !isDark;
-    applyTheme();
-});
+/* ------- Bubble actions ------- */
+
+function handleBubbleAction(event) {
+    const action = event.currentTarget.dataset.action;
+    if (action === "resume") {
+        window.open(
+            "https://drive.google.com/file/d/1crVPv_OdwpvYC9i8jY9QmIt1S5E-q51s/view?usp=sharing",
+            "_blank",
+            "noopener"
+        );
+        return;
+    }
+    if (["about", "projects", "certificates"].includes(action)) {
+        smoothScrollTo(`#${action}`);
+        return;
+    }
+    if (action === "contact") {
+        smoothScrollTo("#contact");
+    }
+}
+
+/* ------- Event listeners ------- */
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        isDark = !isDark;
+        applyTheme();
+    });
+}
 
 document.querySelectorAll(".bubble").forEach((bubble) => {
     bubble.addEventListener("click", handleBubbleAction);
 });
 
-modal.addEventListener("click", (event) => {
-    const bounds = modal.querySelector(".modal-shell").getBoundingClientRect();
-    const isInside =
-        event.clientX >= bounds.left &&
-        event.clientX <= bounds.right &&
-        event.clientY >= bounds.top &&
-        event.clientY <= bounds.bottom;
+if (modal) {
+    modal.addEventListener("click", (event) => {
+        const shell = modal.querySelector(".modal-shell");
+        if (!shell) return;
+        const bounds = shell.getBoundingClientRect();
+        const isInside =
+            event.clientX >= bounds.left &&
+            event.clientX <= bounds.right &&
+            event.clientY >= bounds.top &&
+            event.clientY <= bounds.bottom;
 
-    if (!isInside) {
-        modal.close();
-    }
-});
+        if (!isInside) {
+            modal.close();
+        }
+    });
+}
 
 window.addEventListener("scroll", markActiveSection, { passive: true });
+
+/* ------- Init ------- */
 
 applyTheme();
 markActiveSection();

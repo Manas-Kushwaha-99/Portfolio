@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        <i class="bi bi-moon-stars-fill"></i>
+    </button>
     <div class="loader" id="loader">
         <div class="loader-frame">
             <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
@@ -37,22 +40,12 @@
         <div class="video-overlay"></div>
     </div>
 
-    <header class="site-header">
-        <a class="brand" href="#top">MK</a>
-        <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
-            <a>Built by Manas Kushwaha</a>
-        </nav>
-        <div class="header-actions">
-            <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
-                <i class="bi bi-moon-stars-fill"></i>
-            </button>
-            </div>
-    </header>
+
 
     <main id="top">
         <section class="hero section-shell hero-shell">
             <div class="hero-copy panel glass-panel">
-                <p class="eyebrow">Computer Science & Engineering • Studying in ITER College • Graduating in 2026</p>
+                <p class="eyebrow">Computer Science & Engineering • ITER College • Graduated 2026</p>
                 <h1>Manas Kushwaha</h1>
                 <p class="hero-lead">I build practical systems that connect hardware curiosity with software execution.
                 </p>
@@ -99,8 +92,8 @@
             </div>
             <div class="about-grid">
                 <article class="panel glass-panel prose-card">
-                    <p class="lead">Hi, I'm Manas - a Computer Science and Engineering student at ITER College
-                        graduating in 2026, with a passion for practical tech projects that bridge hardware and
+                    <p class="lead">Hi, I'm Manas - a Computer Science and Engineering graduate from ITER College
+                        (2026), with a passion for practical tech projects that bridge hardware and
                         software.</p>
                     <p>I enjoy building things that help me understand systems deeply, whether that means making a
                         hand-following Arduino car with ultrasonic and IR sensors, profiling PC hardware, managing DNS
@@ -112,10 +105,10 @@
                 <div class="about-side">
                     <article class="panel stat-card">
                         <span class="stat-value">2026</span>
-                        <span class="stat-label">Expected graduation</span>
+                        <span class="stat-label">Graduated</span>
                     </article>
                     <article class="panel stat-card">
-                        <span class="stat-value">6+</span>
+                        <span class="stat-value">11+</span>
                         <span class="stat-label">Public projects highlighted</span>
                     </article>
                     <article class="panel stat-card">
@@ -132,6 +125,8 @@
                         <span>Java</span>
                         <span>C</span>
                         <span>C++</span>
+                        <span>Rust</span>
+                        <span>JavaScript</span>
                     </div>
                 </article>
 
@@ -438,6 +433,34 @@
         </form>
     </dialog>
 
+    <footer class="site-footer">
+        <p>&copy; 2026 Manas Kushwaha &mdash; Built from scratch.</p>
+    </footer>
+
+    <script id="portfolio-data" type="application/json">
+{
+    "about": {
+        "eyebrow": "About",
+        "title": "Manas Kushwaha",
+        "body": "<p>Computer Science &amp; Engineering graduate from ITER College (2026). I build practical systems that connect hardware curiosity with software execution \u2014 from Arduino prototypes and Linux tooling to DNS utilities and performance profilers.</p><p>I enjoy building things that help me understand systems deeply, whether that means making a hand-following Arduino car, profiling PC hardware, managing DNS behavior, or experimenting with Android kernel modifications.</p>"
+    },
+    "projects": {
+        "eyebrow": "Projects",
+        "title": "Selected Work",
+        "body": "<p>Featured projects across networking, hardware, system utilities, and content experiences:</p><ul><li><strong>yt-downloader</strong> \u2014 Lightweight Windows desktop app built with Tauri v2 and Rust for YouTube downloads</li><li><strong>System Shutdown</strong> \u2014 Shutdown scheduler with quick presets, live countdown, and frameless dark UI</li><li><strong>GrammarFix</strong> \u2014 System tray grammar correction tool powered by Gemini API with global shortcuts</li><li><strong>WinLens</strong> \u2014 Clipboard screenshot analyzer using Google Gemini AI and Google Lens</li><li><strong>DNS Manager</strong> \u2014 One-click DNS switching GUI built with Python and Flet</li><li><strong>Linux System Monitor</strong> \u2014 Terminal-based system monitor in C++ using Ncurses</li><li><strong>Hand-Following Arduino Car</strong> \u2014 Sensor-based embedded build with ultrasonic and IR sensors</li></ul>"
+    },
+    "certificates": {
+        "eyebrow": "Certificates",
+        "title": "Learning &amp; Achievement",
+        "body": "<ul><li>Artificial Intelligence &amp; Machine Learning \u2014 GeeksforGeeks</li><li>Generative AI Mastermind \u2014 Outskill</li><li>GenAI Projects \u2014 Coding Ninjas</li><li>Introduction to Programming with Python \u2014 Code Signal</li><li>AI Tools Workshop \u2014 be10x</li><li>Accelerate App Development with Gemini CLI \u2014 Coursera</li></ul>"
+    },
+    "contact": {
+        "eyebrow": "Contact",
+        "title": "Get in Touch",
+        "body": "<p>Open to ideas, collaboration, and interesting technical conversations.</p><p><strong>Email:</strong> <a href=\"mailto:manaskushwaha99@gmail.com\">manaskushwaha99@gmail.com</a></p><p><strong>GitHub:</strong> <a href=\"https://github.com/Manas-Kushwaha-99\" target=\"_blank\" rel=\"noopener\">@Manas-Kushwaha-99</a></p>"
+    }
+}
+    </script>
     <script src="script.js"></script>
 </body>
 
