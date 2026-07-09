@@ -1,467 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manas Kushwaha | Portfolio</title>
-    <meta name="description"
-        content="Portfolio of Manas Kushwaha - computer science student building practical systems, hardware, and software projects.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manas Kushwaha — Systems & Software Engineer</title>
+    <meta name="description" content="Portfolio of Manas Kushwaha — systems-focused engineer building practical hardware + software projects." />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
-        <i class="bi bi-moon-stars-fill"></i>
-    </button>
-    <div class="loader" id="loader">
-        <div class="loader-frame">
-            <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
-                <g id="loaderGroup">
-                    <path id="loaderPath" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" opacity="0.1"></path>
-                </g>
-            </svg>
-        </div>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <div class="video-bg" aria-hidden="true">
-        <video id="lightVideo" class="video-active" autoplay muted loop playsinline>
-            <source src="light.mp4" type="video/mp4">
-        </video>
-        <video id="darkVideo" class="video-inactive" autoplay muted loop playsinline>
+        <video id="darkVideo" class="video-active" autoplay muted loop playsinline>
             <source src="dark.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
 
+    <header class="site-header" id="siteHeader">
+        <div class="container nav">
+            <a href="#top" class="brand" aria-label="Manas Kushwaha — home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6l6-3 6 3 4-2v15l-4 2-6-3-6 3z" />
+                        <path d="M10 3v15" />
+                        <path d="M16 6v15" />
+                    </svg>
+                </span>
+                <span class="brand-text">Manas <span class="brand-dot">·</span> <em>Kushwaha</em></span>
+            </a>
 
+            <nav class="nav-links" id="siteNav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#contact">Contact</a>
+            </nav>
 
-    <main id="top">
-        <section class="hero section-shell hero-shell">
-            <div class="hero-copy panel glass-panel">
-                <p class="eyebrow">Computer Science & Engineering • ITER College • Graduated 2026</p>
-                <h1>Manas Kushwaha</h1>
-                <p class="hero-lead">I build practical systems that connect hardware curiosity with software execution.
+            <div class="nav-actions">
+                <a class="btn btn-ghost" href="https://drive.google.com/file/d/1crVPv_OdwpvYC9i8jY9QmIt1S5E-q51s/view?usp=sharing" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <path d="M14 2v6h6" />
+                        <path d="M9 13h6" />
+                        <path d="M9 17h6" />
+                    </svg>
+                    <span>Resume</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top">
+            <div class="container hero-inner">
+                <p class="eyebrow">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Available for new opportunities · 2026 Graduate
                 </p>
-                <p class="hero-body">From Arduino prototypes and Linux tooling to DNS utilities and performance
-                    profilers, I like projects that expose how systems really work.</p>
+                <h1 class="hero-title">
+                    Building <span class="grad">practical systems</span><br />
+                    where hardware meets <span class="grad-2">software</span>.
+                </h1>
+                <p class="hero-lead">
+                    I'm Manas — a Computer Science &amp; Engineering graduate from ITER College.
+                    I prototype with Arduino, profile PC hardware, ship desktop tooling in Tauri &amp; Electron,
+                    and like projects that expose how systems really work.
+                </p>
 
-            </div>
-
-            <aside class="hero-orbit panel glass-panel" aria-label="Quick actions">
-                <p class="orbit-label">Quick Access</p>
-                <div class="bubbles-container">
-                    <button class="bubble contact-bubble" data-action="contact" type="button">
-                        <span class="bubble-icon"><i class="bi bi-envelope"></i></span>
-                        <span class="bubble-text">Contact</span>
-                    </button>
-                    <button class="bubble resume-bubble" data-action="resume" type="button">
-                        <span class="bubble-icon"><i class="bi bi-file-earmark-text"></i></span>
-                        <span class="bubble-text">Resume</span>
-                    </button>
-                    <button class="bubble about-bubble" data-action="about" type="button">
-                        <span class="bubble-icon"><i class="bi bi-person-badge"></i></span>
-                        <span class="bubble-text">About</span>
-                    </button>
-                    <button class="bubble projects-bubble" data-action="projects" type="button">
-                        <span class="bubble-icon"><i class="bi bi-folder2-open"></i></span>
-                        <span class="bubble-text">Projects</span>
-                    </button>
-                    <button class="bubble certificates-bubble" data-action="certificates" type="button">
-                        <span class="bubble-icon"><i class="bi bi-patch-check"></i></span>
-                        <span class="bubble-text">Certificates</span>
-                    </button>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#projects">
+                        See selected work
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14" /><path d="m13 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a class="btn btn-secondary" href="#contact">
+                        Get in touch
+                    </a>
                 </div>
-                <p class="orbit-note">A playful shortcut layer over a more structured portfolio.</p>
-            </aside>
-        </section>
 
-        <section id="about" class="section-shell">
-            <div class="section-heading">
-                <span class="section-index">01</span>
-                <div>
-                    <h2>About Me</h2>
-                    <p>Systems-focused builder with a strong bias toward hands-on experimentation.</p>
-                </div>
-            </div>
-            <div class="about-grid">
-                <article class="panel glass-panel prose-card">
-                    <p class="lead">Hi, I'm Manas - a Computer Science and Engineering graduate from ITER College
-                        (2026), with a passion for practical tech projects that bridge hardware and
-                        software.</p>
-                    <p>I enjoy building things that help me understand systems deeply, whether that means making a
-                        hand-following Arduino car with ultrasonic and IR sensors, profiling PC hardware, managing DNS
-                        behavior, or experimenting with Android kernel modifications using KernelSU.</p>
-                    <p>I also like troubleshooting PCs, exploring custom ROMs, and learning by taking systems apart and
-                        rebuilding them in smarter ways. That same curiosity drives how I approach engineering work and
-                        collaboration.</p>
-                </article>
-                <div class="about-side">
-                    <article class="panel stat-card">
-                        <span class="stat-value">2026</span>
-                        <span class="stat-label">Graduated</span>
-                    </article>
-                    <article class="panel stat-card">
-                        <span class="stat-value">11+</span>
-                        <span class="stat-label">Public projects highlighted</span>
-                    </article>
-                    <article class="panel stat-card">
-                        <span class="stat-value">6</span>
-                        <span class="stat-label">Certificates featured</span>
-                    </article>
-                </div>
-            </div>
-            <div class="skills-layout">
-                <article class="panel skill-panel">
-                    <h3>Languages</h3>
-                    <div class="tag-list">
-                        <span>Python</span>
-                        <span>Java</span>
-                        <span>C</span>
-                        <span>C++</span>
-                        <span>Rust</span>
-                        <span>JavaScript</span>
-                    </div>
-                </article>
-
-                <article class="panel skill-panel">
-                    <h3>Interests</h3>
-                    <div class="tag-list">
-                        <span>Arduino</span>
-                        <span>Kernel Mods</span>
-                        <span>Custom ROMs</span>
-                        <span>PC Hardware</span>
-                        <span>System Troubleshooting</span>
-                    </div>
-                </article>
+                <ul class="hero-meta" aria-label="At a glance">
+                    <li>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
+                        <span><strong>CSE</strong> · ITER College</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 4v4" /><path d="M2 8h20" /><path d="m9 14 2 2 4-4" /></svg>
+                        <span><strong>2026</strong> · Graduated</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" /></svg>
+                        <span><strong>11+</strong> public projects</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z" /><path d="m9 12 2 2 4-4" /></svg>
+                        <span><strong>6</strong> certificates</span>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <section id="projects" class="section-shell">
-            <div class="section-heading">
-                <span class="section-index">02</span>
-                <div>
-                    <h2>Projects</h2>
-                    <p>Selected work across networking, hardware, system utilities, and content experiences.</p>
-                </div>
-            </div>
-            <div class="cards-grid">
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-download"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/yt-downloader" target="_blank"
-                            rel="noopener" aria-label="yt-downloader GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>yt-downloader</h3>
-                    <p>A lightweight Windows desktop app for downloading YouTube videos and audio. Built with Tauri v2 —
-                        Rust backend with yt-dlp integration, vanilla frontend with no frameworks. Supports quality
-                        selection, live progress tracking, and a frameless modern UI in a compact executable.</p>
-                    <div class="tag-list compact">
-                        <span>Tauri</span>
-                        <span>Rust</span>
-                        <span>yt-dlp</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-power"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/system-shutdown" target="_blank"
-                            rel="noopener" aria-label="System Shutdown GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>System Shutdown</h3>
-                    <p>A lightweight Windows shutdown scheduler built with Tauri v2. Set a timer or pick a specific time
-                        to shut down your machine — features quick presets, live countdown, and a frameless dark UI in
-                        an ~8MB standalone executable.</p>
-                    <div class="tag-list compact">
-                        <span>Tauri</span>
-                        <span>Rust</span>
-                        <span>JavaScript</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-spellcheck"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/GrammarFix" target="_blank"
-                            rel="noopener" aria-label="GrammarFix GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>GrammarFix</h3>
-                    <p>A lightweight system tray grammar correction tool powered by Gemini 3.1 Flash Lite. Paste text,
-                        fix grammar, auto-copy result — with global shortcut (Alt+P), Windows auto-start, and
-                        persistent API key config.</p>
-                    <div class="tag-list compact">
-                        <span>Tauri</span>
-                        <span>Rust</span>
-                        <span>Gemini API</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-image"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/WinLens" target="_blank"
-                            rel="noopener" aria-label="WinLens GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>WinLens</h3>
-                    <p>A lightweight Windows desktop app that watches your clipboard for screenshots and instantly
-                        answers questions about them using Google Gemini AI or Google Lens.</p>
-                    <div class="tag-list compact">
-                        <span>Electron</span>
-                        <span>Python</span>
-                        <span>Gemini API</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-film"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/video-compress" target="_blank"
-                            rel="noopener" aria-label="Video Compress GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>Video Compress</h3>
-                    <p>A free, offline desktop video compression app built with Electron. Shrink video files without
-                        uploading anything to the cloud — all processing happens locally on your machine.</p>
-                    <div class="tag-list compact">
-                        <span>Electron</span>
-                        <span>FFmpeg</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-activity"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/Network-Monitor-Dashboard" target="_blank"
-                            rel="noopener" aria-label="Network Monitor Dashboard GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>Network Monitor Dashboard</h3>
-                    <p>A Windows tool to monitor network speed, switch DNS, and run diagnostics (ping, traceroute,
-                        speedtest).</p>
-                    <div class="tag-list compact">
-                        <span>Python</span>
-                        <span>CMD Command Line</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-diagram-3"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/DNS-Manager" target="_blank" rel="noopener"
-                            aria-label="DNS Manager GitHub"><i class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>DNS Manager</h3>
-                    <p>A modern, user-friendly Windows-only DNS Manager GUI built in Python (Flet). Switch between
-                        public DNS providers, set custom servers, reset to automatic, or flush DNS cache—all in one
-                        click. Perfect for users who want fast, private, and hassle-free DNS switching without using the
-                        command line.</p>
-                    <div class="tag-list compact">
-                        <span>Python</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-cpu"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/PC-Hardware-Performance-Profiler" target="_blank"
-                            rel="noopener" aria-label="PC Hardware Performance Profiler GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>PC Hardware Performance Profiler</h3>
-                    <p>A simple real-time PC hardware monitoring dashboard built with Python and Tkinter.</p>
-                    <div class="tag-list compact">
-                        <span>Python</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-robot"></i></span>
-                        <a href="https://drive.google.com/drive/folders/1Sp96ztjMIARk6Ijd_M4Mg19VtN_YywJ9"
-                            target="_blank" rel="noopener" aria-label="Hand-Following Arduino Car folder"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>Hand-Following Arduino Car</h3>
-                    <p>A sensor-based Arduino build that follows hand motion, combining embedded logic with real-world
-                        interaction and control.</p>
-                    <div class="tag-list compact">
-                        <span>Arduino</span>
-                        <span>Ultrasonic</span>
-                        <span>IR Sensors</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-heart-pulse"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/Fitness-and-Health-BLog" target="_blank"
-                            rel="noopener" aria-label="Fitness and Health Blog GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>Fitness and Health Blog</h3>
-                    <p>We provide expert tips, workout routines, nutrition advice, and wellness inspiration to help you
-                        lead a balanced and active lifestyle</p>
-                    <div class="tag-list compact">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
-                </article>
-
-                <article class="panel project-card">
-                    <div class="card-top">
-                        <span class="card-icon"><i class="bi bi-terminal"></i></span>
-                        <a href="https://github.com/Manas-Kushwaha-99/Linux-System-Monitor-Tool" target="_blank"
-                            rel="noopener" aria-label="Linux System Monitor Tool GitHub"><i
-                                class="bi bi-box-arrow-up-right"></i></a>
-                    </div>
-                    <h3>Linux System Monitor Tool</h3>
-                    <p>A terminal-based Linux System Monitor built in C++ using Ncurses. Displays real-time CPU and
-                        memory usage, running processes, uptime, and allows process control — all from the command line.
-                    </p>
-                    <div class="tag-list compact">
-                        <span>C++</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="certificates" class="section-shell">
-            <div class="section-heading">
-                <span class="section-index">03</span>
-                <div>
-                    <h2>Certificates</h2>
-                    <p>Focused learning around AI, Python, and applied tooling.</p>
-                </div>
-            </div>
-            <div class="timeline">
-                <article class="panel timeline-item">
-                    <h3>Artificial Intelligence & Machine Learning</h3>
-                    <p>Technical Workshop - GeeksforGeeks</p>
-                    <a href="https://media.geeksforgeeks.org/certificates/1745578492/2e3ff2772a76e9091848969c688e6cf1.pdf"
-                        target="_blank" rel="noopener">View certificate</a>
-                </article>
-                <article class="panel timeline-item">
-                    <h3>Generative AI Mastermind</h3>
-                    <p>Outskill</p>
-                    <a href="https://drive.google.com/file/d/1CAMQPY8qJV6IFeMqXA42W6iaq-yFc_LK/view" target="_blank"
-                        rel="noopener">View certificate</a>
-                </article>
-                <article class="panel timeline-item">
-                    <h3>GenAI Projects</h3>
-                    <p>Coding Ninjas</p>
-                    <a href="https://drive.google.com/file/d/1A-np_e9jnXe-chLC_vwT3sCwpzKLcKWN/view" target="_blank"
-                        rel="noopener">View certificate</a>
-                </article>
-                <article class="panel timeline-item">
-                    <h3>Introduction to Programming with Python</h3>
-                    <p>Code Signal</p>
-                    <a href="https://codesignal.com/learn/certificates/cmgwx47p10060l704oytu0whu/course-paths/21"
-                        target="_blank" rel="noopener">View certificate</a>
-                </article>
-                <article class="panel timeline-item">
-                    <h3>AI Tools Workshop</h3>
-                    <p>be10x</p>
-                    <a href="https://drive.google.com/file/d/19kpfjw1sRZI05YMUy2CSuvq3KCsyRfpJ/view?usp=sharing"
-                        target="_blank" rel="noopener">View certificate</a>
-                </article>
-                <article class="panel timeline-item">
-                    <h3>Accelerate App Development with Gemini CLI</h3>
-                    <p>Coursera</p>
-                    <a href="https://coursera.org/share/bb724f38a7a815b0893bef1f20124952" target="_blank"
-                        rel="noopener">View certificate</a>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact" class="section-shell contact-shell">
-            <div class="section-heading">
-                <span class="section-index">04</span>
-                <div>
-                    <h2>Contact</h2>
-                    <p>Open to ideas, collaboration, and interesting technical conversations.</p>
-                </div>
-            </div>
-            <div class="contact-grid">
-                <a class="panel contact-card" href="mailto:manaskushwaha99@gmail.com">
-                    <span class="card-icon"><i class="bi bi-envelope-paper"></i></span>
+        <section id="about" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-index">01</span>
                     <div>
-                        <span class="contact-label">Email</span>
-                        <strong>manaskushwaha99@gmail.com</strong>
+                        <h2>About</h2>
+                        <p>A systems-first engineer with a strong bias toward hands-on experimentation.</p>
                     </div>
-                </a>
-                <a class="panel contact-card" href="https://github.com/Manas-Kushwaha-99" target="_blank"
-                    rel="noopener">
-                    <span class="card-icon"><i class="bi bi-github"></i></span>
+                </header>
+
+                <div class="about-grid">
+                    <article class="card about-card">
+                        <p class="lead">
+                            I build things that help me understand how systems actually behave under the hood —
+                            from a hand-following Arduino car with ultrasonic + IR sensors to a Linux ncurses
+                            system monitor and a Windows DNS manager.
+                        </p>
+                        <p>
+                            I also like profiling PC hardware, troubleshooting machines, experimenting with
+                            custom ROMs, and applying Android kernel modifications via KernelSU. That
+                            same curiosity drives how I approach engineering work and collaboration.
+                        </p>
+                    </article>
+
+                    <aside class="stats-grid">
+                        <article class="card stat">
+                            <span class="stat-value">2026</span>
+                            <span class="stat-label">Graduated · ITER</span>
+                        </article>
+                        <article class="card stat">
+                            <span class="stat-value">11+</span>
+                            <span class="stat-label">Public projects</span>
+                        </article>
+                        <article class="card stat">
+                            <span class="stat-value">6</span>
+                            <span class="stat-label">Certificates earned</span>
+                        </article>
+                        <article class="card stat">
+                            <span class="stat-value">HW × SW</span>
+                            <span class="stat-label">Hardware + software</span>
+                        </article>
+                    </aside>
+
+                    <article class="card skill-card">
+                        <h3 class="card-title">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+                            Languages
+                        </h3>
+                        <ul class="tag-list">
+                            <li>Python</li><li>Java</li><li>C</li><li>C++</li><li>Rust</li><li>JavaScript</li>
+                        </ul>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3 class="card-title">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
+                            Interests
+                        </h3>
+                        <ul class="tag-list">
+                            <li>Arduino</li><li>Kernel Mods</li><li>Custom ROMs</li><li>PC Hardware</li><li>System Troubleshooting</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-index">02</span>
                     <div>
-                        <span class="contact-label">GitHub</span>
-                        <strong>@Manas-Kushwaha-99</strong>
+                        <h2>Selected Projects</h2>
+                        <p>Networking, hardware, system utilities, and content experiences.</p>
                     </div>
-                </a>
-                <a class="panel contact-card"
-                    href="https://drive.google.com/file/d/1crVPv_OdwpvYC9i8jY9QmIt1S5E-q51s/view?usp=sharing"
-                    target="_blank" rel="noopener">
-                    <span class="card-icon"><i class="bi bi-file-earmark-arrow-down"></i></span>
+                </header>
+
+                <div class="projects-grid">
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: var(--accent)">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/yt-downloader" target="_blank" rel="noopener" aria-label="yt-downloader on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>yt-downloader</h3>
+                        <p>A lightweight Windows desktop app for downloading YouTube video and audio. Tauri v2 with a Rust backend, yt-dlp integration, and a frameless modern UI in a compact executable.</p>
+                        <ul class="tag-list compact">
+                            <li>Tauri</li><li>Rust</li><li>yt-dlp</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #f59e0b">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.36 6.64a9 9 0 1 1-12.73 0" /><line x1="12" y1="2" x2="12" y2="12" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/system-shutdown" target="_blank" rel="noopener" aria-label="System Shutdown on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>System Shutdown</h3>
+                        <p>Lightweight Windows shutdown scheduler built with Tauri v2. Quick presets, live countdown, and a frameless dark UI in an ~8 MB standalone executable.</p>
+                        <ul class="tag-list compact">
+                            <li>Tauri</li><li>Rust</li><li>JavaScript</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #10b981">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/GrammarFix" target="_blank" rel="noopener" aria-label="GrammarFix on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>GrammarFix</h3>
+                        <p>System tray grammar correction tool powered by Gemini. Paste text, fix grammar, auto-copy — with a global shortcut, Windows auto-start, and persistent API key config.</p>
+                        <ul class="tag-list compact">
+                            <li>Tauri</li><li>Rust</li><li>Gemini API</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #8b5cf6">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/WinLens" target="_blank" rel="noopener" aria-label="WinLens on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>WinLens</h3>
+                        <p>Windows desktop app that watches your clipboard for screenshots and instantly answers questions about them using Google Gemini AI or Google Lens.</p>
+                        <ul class="tag-list compact">
+                            <li>Electron</li><li>Python</li><li>Gemini API</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #ef4444">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/video-compress" target="_blank" rel="noopener" aria-label="Video Compress on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>Video Compress</h3>
+                        <p>Free, offline desktop video compression app built with Electron. Shrink video files entirely on-device — nothing is ever uploaded to the cloud.</p>
+                        <ul class="tag-list compact">
+                            <li>Electron</li><li>FFmpeg</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #06b6d4">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/Network-Monitor-Dashboard" target="_blank" rel="noopener" aria-label="Network Monitor Dashboard on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>Network Monitor Dashboard</h3>
+                        <p>Windows tool to monitor network speed, switch DNS, and run diagnostics like ping, traceroute, and speedtest from a single dashboard.</p>
+                        <ul class="tag-list compact">
+                            <li>Python</li><li>CLI</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #f97316">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20" /><path d="M5 20V8h4v12" /><path d="M11 20V4h4v16" /><path d="M17 20v-6h4v6" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/DNS-Manager" target="_blank" rel="noopener" aria-label="DNS Manager on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>DNS Manager</h3>
+                        <p>Modern Windows-only DNS Manager GUI built in Python + Flet. Switch between public providers, set custom servers, reset to automatic, or flush the cache in one click.</p>
+                        <ul class="tag-list compact">
+                            <li>Python</li><li>Flet</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #84cc16">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" /><line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" /><line x1="9" y1="20" x2="9" y2="23" /><line x1="15" y1="20" x2="15" y2="23" /><line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="14" x2="23" y2="14" /><line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="14" x2="4" y2="14" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/PC-Hardware-Performance-Profiler" target="_blank" rel="noopener" aria-label="PC Hardware Performance Profiler on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>PC Hardware Performance Profiler</h3>
+                        <p>Real-time PC hardware monitoring dashboard built with Python and Tkinter — a quick way to see how the machine is actually behaving.</p>
+                        <ul class="tag-list compact">
+                            <li>Python</li><li>Tkinter</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #ec4899">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2" /><circle cx="12" cy="5" r="2" /><path d="M12 7v4" /><line x1="8" y1="16" x2="8" y2="16" /><line x1="16" y1="16" x2="16" y2="16" /></svg>
+                            </span>
+                            <a class="project-link" href="https://drive.google.com/drive/folders/1Sp96ztjMIARk6Ijd_M4Mg19VtN_YywJ9" target="_blank" rel="noopener" aria-label="Hand-Following Arduino Car folder">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>Hand-Following Arduino Car</h3>
+                        <p>Sensor-based Arduino build that follows hand motion — combining embedded logic, ultrasonic + IR sensing, and real-world control.</p>
+                        <ul class="tag-list compact">
+                            <li>Arduino</li><li>Ultrasonic</li><li>IR</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #f43f5e">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/Fitness-and-Health-Blog" target="_blank" rel="noopener" aria-label="Fitness and Health Blog on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>Fitness &amp; Health Blog</h3>
+                        <p>Expert tips, workout routines, nutrition advice, and wellness inspiration to help readers lead a balanced, active lifestyle.</p>
+                        <ul class="tag-list compact">
+                            <li>HTML</li><li>CSS</li>
+                        </ul>
+                    </article>
+
+                    <article class="card project">
+                        <div class="project-head">
+                            <span class="project-icon" style="--icon: #0ea5e9">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+                            </span>
+                            <a class="project-link" href="https://github.com/Manas-Kushwaha-99/Linux-System-Monitor-Tool" target="_blank" rel="noopener" aria-label="Linux System Monitor Tool on GitHub">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                            </a>
+                        </div>
+                        <h3>Linux System Monitor</h3>
+                        <p>Terminal-based Linux system monitor in C++ using Ncurses. Real-time CPU and memory usage, running processes, uptime, and process control — all from the CLI.</p>
+                        <ul class="tag-list compact">
+                            <li>C++</li><li>Ncurses</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-index">03</span>
                     <div>
-                        <span class="contact-label">Resume</span>
-                        <strong>View / download</strong>
+                        <h2>Certificates</h2>
+                        <p>Focused learning around AI, Python, and applied tooling.</p>
                     </div>
-                </a>
+                </header>
+
+                <ol class="timeline">
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">01</span>
+                            <span class="cert-source">GeeksforGeeks</span>
+                        </div>
+                        <h3>Artificial Intelligence &amp; Machine Learning</h3>
+                        <p>Technical workshop covering the foundations of AI/ML systems.</p>
+                        <a class="cert-link" href="https://media.geeksforgeeks.org/certificates/1745578492/2e3ff2772a76e9091848969c688e6cf1.pdf" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">02</span>
+                            <span class="cert-source">Outskill</span>
+                        </div>
+                        <h3>Generative AI Mastermind</h3>
+                        <p>Intensive program on building with generative AI in production contexts.</p>
+                        <a class="cert-link" href="https://drive.google.com/file/d/1CAMQPY8qJV6IFeMqXA42W6iaq-yFc_LK/view" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">03</span>
+                            <span class="cert-source">Coding Ninjas</span>
+                        </div>
+                        <h3>GenAI Projects</h3>
+                        <p>Hands-on project work building with generative AI APIs and tooling.</p>
+                        <a class="cert-link" href="https://drive.google.com/file/d/1A-np_e9jnXe-chLC_vwT3sCwpzKLcKWN/view" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">04</span>
+                            <span class="cert-source">Code Signal</span>
+                        </div>
+                        <h3>Introduction to Programming with Python</h3>
+                        <p>Foundational Python coursework covering syntax, control flow, and data structures.</p>
+                        <a class="cert-link" href="https://codesignal.com/learn/certificates/cmgwx47p10060l704oytu0whu/course-paths/21" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">05</span>
+                            <span class="cert-source">be10x</span>
+                        </div>
+                        <h3>AI Tools Workshop</h3>
+                        <p>Practical workshop on contemporary AI tools for productivity and development.</p>
+                        <a class="cert-link" href="https://drive.google.com/file/d/19kpfjw1sRZI05YMUy2CSuvq3KCsyRfpJ/view?usp=sharing" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                    <li class="card cert">
+                        <div class="cert-meta">
+                            <span class="cert-num">06</span>
+                            <span class="cert-source">Coursera</span>
+                        </div>
+                        <h3>Accelerate App Development with Gemini CLI</h3>
+                        <p>Coursework on using Gemini CLI to accelerate day-to-day application development.</p>
+                        <a class="cert-link" href="https://coursera.org/share/bb724f38a7a815b0893bef1f20124952" target="_blank" rel="noopener">
+                            View certificate
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 5 7 7-7 7" /></svg>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-index">04</span>
+                    <div>
+                        <h2>Get in touch</h2>
+                        <p>Open to ideas, collaboration, and interesting technical conversations.</p>
+                    </div>
+                </header>
+
+                <div class="contact-grid">
+                    <a class="card contact" href="mailto:manaskushwaha99@gmail.com">
+                        <span class="contact-icon" style="--icon: #ef4444">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                        </span>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <strong>manaskushwaha99@gmail.com</strong>
+                        </div>
+                    </a>
+                    <a class="card contact" href="https://github.com/Manas-Kushwaha-99" target="_blank" rel="noopener">
+                        <span class="contact-icon" style="--icon: #0f172a">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+                        </span>
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <strong>@Manas-Kushwaha-99</strong>
+                        </div>
+                    </a>
+                    <a class="card contact" href="https://www.linkedin.com/in/manas-kushwaha99/" target="_blank" rel="noopener">
+                        <span class="contact-icon" style="--icon: #0a66c2">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+                        </span>
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <strong>/in/manas-kushwaha99</strong>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-
-    <dialog id="infoModal" class="info-modal">
-        <form method="dialog" class="modal-shell">
-            <button class="modal-close" type="submit" aria-label="Close quick info">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <p id="modalEyebrow" class="eyebrow"></p>
-            <h3 id="modalTitle"></h3>
-            <div id="modalBody" class="modal-body"></div>
-        </form>
-    </dialog>
-
     <footer class="site-footer">
-        <p>&copy; 2026 Manas Kushwaha &mdash; Built from scratch.</p>
+        <div class="container footer-inner">
+            <p>© 2026 Manas Kushwaha — Built with care.</p>
+            <p class="footer-meta">
+                <span>CSE · ITER College</span>
+                <span class="dot" aria-hidden="true">·</span>
+                <span>Graduated 2026</span>
+            </p>
+        </div>
     </footer>
 
-    <script id="portfolio-data" type="application/json">
-{
-    "about": {
-        "eyebrow": "About",
-        "title": "Manas Kushwaha",
-        "body": "<p>Computer Science &amp; Engineering graduate from ITER College (2026). I build practical systems that connect hardware curiosity with software execution \u2014 from Arduino prototypes and Linux tooling to DNS utilities and performance profilers.</p><p>I enjoy building things that help me understand systems deeply, whether that means making a hand-following Arduino car, profiling PC hardware, managing DNS behavior, or experimenting with Android kernel modifications.</p>"
-    },
-    "projects": {
-        "eyebrow": "Projects",
-        "title": "Selected Work",
-        "body": "<p>Featured projects across networking, hardware, system utilities, and content experiences:</p><ul><li><strong>yt-downloader</strong> \u2014 Lightweight Windows desktop app built with Tauri v2 and Rust for YouTube downloads</li><li><strong>System Shutdown</strong> \u2014 Shutdown scheduler with quick presets, live countdown, and frameless dark UI</li><li><strong>GrammarFix</strong> \u2014 System tray grammar correction tool powered by Gemini API with global shortcuts</li><li><strong>WinLens</strong> \u2014 Clipboard screenshot analyzer using Google Gemini AI and Google Lens</li><li><strong>DNS Manager</strong> \u2014 One-click DNS switching GUI built with Python and Flet</li><li><strong>Linux System Monitor</strong> \u2014 Terminal-based system monitor in C++ using Ncurses</li><li><strong>Hand-Following Arduino Car</strong> \u2014 Sensor-based embedded build with ultrasonic and IR sensors</li></ul>"
-    },
-    "certificates": {
-        "eyebrow": "Certificates",
-        "title": "Learning &amp; Achievement",
-        "body": "<ul><li>Artificial Intelligence &amp; Machine Learning \u2014 GeeksforGeeks</li><li>Generative AI Mastermind \u2014 Outskill</li><li>GenAI Projects \u2014 Coding Ninjas</li><li>Introduction to Programming with Python \u2014 Code Signal</li><li>AI Tools Workshop \u2014 be10x</li><li>Accelerate App Development with Gemini CLI \u2014 Coursera</li></ul>"
-    },
-    "contact": {
-        "eyebrow": "Contact",
-        "title": "Get in Touch",
-        "body": "<p>Open to ideas, collaboration, and interesting technical conversations.</p><p><strong>Email:</strong> <a href=\"mailto:manaskushwaha99@gmail.com\">manaskushwaha99@gmail.com</a></p><p><strong>GitHub:</strong> <a href=\"https://github.com/Manas-Kushwaha-99\" target=\"_blank\" rel=\"noopener\">@Manas-Kushwaha-99</a></p>"
-    }
-}
-    </script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
-
 </html>
