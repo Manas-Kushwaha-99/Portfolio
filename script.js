@@ -10,9 +10,9 @@
     };
 
     if (document.readyState === "complete") {
-        setTimeout(hideLoader, 700);
+        setTimeout(hideLoader, 2000);
     } else {
-        window.addEventListener("load", () => setTimeout(hideLoader, 700), { once: true });
+        window.addEventListener("load", () => setTimeout(hideLoader, 2000), { once: true });
     }
 
     /* ------- Scroll spy ------- */
